@@ -1,0 +1,9 @@
+SVMdl=fitcsvm(w,Y,'Holdout',0.3,'ClassNames',{'Faulty','Faultless'},'BoxConstraint',0.86,'KernelScale',0.32,'Standardize',true);
+Compactmdl=SVMdl.Trained{1}
+
+Compactmdl=SVMdl.Trained{1}
+A=test(SVMdl.Partition)
+wtest=w(A,:)
+Ytest=Y(A,:)
+L=loss(Compactmdl,wtest,Ytest,'LossFun','classifcost')
+
