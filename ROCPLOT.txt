@@ -16,8 +16,8 @@ n =
 
   2×1 cell array
 
-    {'arızalı' }
-    {'arızasız'}
+    {'Faulty' }
+    {'Faultless'}
 
 >> rocObj
 
@@ -28,5 +28,6 @@ rocObj =
     Metrics: [62×4 table]
 
 Properties, Methods
+
 
 >> plot(rocObj)
