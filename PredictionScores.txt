@@ -1,0 +1,11 @@
+Var1,Var2,Var3
+Faultless,Faultless,4.30568078745785
+Faulty,Faulty,-4.14833620803519
+Faulty,Faulty,-0.596979595692227
+Faultless,Faultless,4.62225225689108
+Faulty,Faulty,-5.24999194604206
+Faultless,Faultless,0.538386109082332
+Faulty,Faulty,-4.88857701399252
+Faultless,Faultless,0.514988842483658
+Faultless,Faultless,1.71200561646181
+Faultless,Faultless,0.913870464440913
