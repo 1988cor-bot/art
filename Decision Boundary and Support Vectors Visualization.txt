@@ -1,0 +1,78 @@
+SVMMd=fitcsvm(transformedData2,Y)
+
+figure
+gscatter(transformedData2(:,1),transformedData2(:,2),Y)
+hold on
+plot(sv(:,1),sv(:,2),'ko','MarkerSize',10)
+legend('Faultless','Faulty','Support Vector')
+
+Z1 = linspace(min(transformedData2(:,1)),max(transformedData2(:,1)),100);
+Z2 = -(beta(1)/beta(2)*Z1)-b/beta(2);
+plot(Z1,Z2,'-')
+
+m = 1/sqrt(beta(1)^2 + beta(2)^2);  % Margin half-width
+Z1margin_low = Z1+beta(1)*m^2;
+Z2margin_low = Z2+beta(2)*m^2;
+Z1margin_high = Z1-beta(1)*m^2;
+Z2margin_high = Z2-beta(2)*m^2;
+plot(Z1margin_high,Z2margin_high,'b--')
+plot(Z1margin_low,Z2margin_low,'r--')
+
+>> load("/MATLAB Drive/060220263.mat")
+>> untitledsvm2
+
+SVMMd = 
+
+  ClassificationSVM
+             ResponseName: 'Y'
+    CategoricalPredictors: []
+               ClassNames: {'Faultless'  'Faulty'}
+           ScoreTransform: 'none'
+          NumObservations: 100
+                    Alpha: [28×1 double]
+                     Bias: 0.7684
+         KernelParameters: [1×1 struct]
+           BoxConstraints: [100×1 double]
+          ConvergenceInfo: [1×1 struct]
+          IsSupportVector: [100×1 logical]
+                   Solver: 'SMO'
+
+
+  Properties, Methods
+
+>> L=loss(SVMMd,transformedData2,Y,'LossFun','classifcost')
+
+L =
+
+    0.0500
+
+Support Vectors
+
+>>  0.7010   -0.1781
+    0.7553   -0.1352
+    0.5521    0.3692
+    0.8757   -0.4535
+    0.6023    0.2437
+    0.9779   -0.4891
+    0.6834    0.2063
+    0.5900    0.3586
+    0.9775   -0.4917
+    0.5697    0.3620
+    0.9736   -0.4756
+    0.5896    0.3540
+    0.9659   -0.4341
+    0.9714   -0.4731
+    0.9641   -0.4184
+    0.6583    0.0614
+    0.6615   -0.2686
+    0.0775    0.2039
+    0.8208   -0.3457
+   -2.1038    0.8177
+   -0.4092    1.3907
+    0.5040    0.3527
+    0.6197    0.2308
+   -0.4746    1.3927
+    0.6231    0.1598
+    0.5040    0.3527
+    0.9129   -0.3382
+    0.9699   -0.4493
